@@ -1,52 +1,2082 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Amazon</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="main.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
     <header>
-
-        <section class="left">      <!-- amazon logo -->
-             <a href="index.html">
-                    <img id ="amazon" src="imgs/amazon-logo-white.png" alt="Amazon Logo">
-
+      <section class="left">
+        <!-- amazon logo -->
+        <a href="index.html">
+          <img id="amazon" src="imgs/amazon-logo-white.png" alt="Amazon Logo" />
+          <img
+            class="amazon"
+            src="imgs/amazon-mobile-logo-white.png"
+            alt="Amazon Logo"
+          />
         </a>
-        </section>
+      </section>
 
-        <section class="middle">    <!-- search  -->
-              <input class="input"type="text" placeholder="Search">
-              <button class="Search"><img class="search-icon"src="imgs/search-icon.png" alt="search icon"> </button>
+      <section class="middle">
+        <!-- search  -->
+        <input class="input" type="text" placeholder="Search" />
+        <button class="Search">
+          <img
+            class="search-icon"
+            src="imgs/search-icon.png"
+            alt="search icon"
+          />
+        </button>
+      </section>
 
-
-        </section>
-
-        <section class="right">
-            <div id="ro">
-                 <a class="ro"href="#">
-                <span class="returns"> Returns</span><br/>
-                <span class="orders">& Orders</span>
-            </a>
-            </div>
-            <div id="cart">
-                 <a class="cart" href="#">
-                <img class="ci" src="imgs/cart-icon.png" alt="cart-icon" >
-                <div class="cart-q"> 0</div>
-                <div class="c">Cart</div>
-
-
-            </a>
-
-            </div>
-            
-
-           
-        </section>
-        
-
+      <section class="right">
+        <div id="ro">
+          <a class="ro" href="#">
+            <span class="returns"> Returns</span><br />
+            <span class="orders">& Orders</span>
+          </a>
+        </div>
+        <div id="cart">
+          <a class="cart" href="#">
+            <img class="ci" src="imgs/cart-icon.png" alt="cart-icon" />
+            <div class="cart-q">0</div>
+            <div class="c">Cart</div>
+          </a>
+        </div>
+        <img
+          class="menu"
+          src="imgs/hamburger-menu.png"
+          alt="menu"
+          height="16"
+          width="20"
+        />
+      </section>
     </header>
+    <!-- menu -->
+    <div id="menu">
+      <div class="returns-menu">
+        <a class="orders-menu" href="orders.html">
+          <div class="RO">Returns & Orders</div>
+        </a>
+      </div>
 
-</body>
+      <div class="cart-menu">
+        <a class="ck-menu" href="checkout.html">
+          <div class="cm">Cart (<span class="cq">0</span>)</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- main page -->
+    <div class="main">
+      <!-- Start of  product cards -->
+      <div class="1">
+        <div class="img">
+          <img
+            src="products/6-piece-non-stick-baking-set.webp"
+            alt="6-piece-non-stick-baking-set"
+            width="205.289px"
+            height="147.938px"
+          />
+        </div>
+        <p>6-Piece Nonstick, Carbon Steel Oven Bakeware</p>
+        <div class="ratings-container">
+          <img
+            src="ratings/rating-45.png"
+            alt="rating-45"
+            width="100"
+            height="19.789"
+          />
+          <span class="ratings"> 2134 </span>
+        </div>
+        <span class="price"> $10.99 </span>
+        <select class="custom-select">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+        </select>
+        <div class="added">
+          <img
+            class="checkmark"
+            src="imgs/checkmark.png"
+            alt="checkmark"
+            height="20px"
+            width="20"
+          />
+          <div class="noted">Added</div>
+        </div>
+
+        <div class="add-cart">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="1">
+        <div class="img">
+          <img
+            src="products/athletic-cotton-socks-6-pairs.jpg"
+            alt="athletic-cotton-socks-6-pairs"
+            width="205.289px"
+            height="147.938px"
+          />
+        </div>
+        <p>Black and Gray Athletic Cotton Socks - 6 Pairs</p>
+        <div class="ratings-container">
+          <img
+            src="ratings/rating-45.png"
+            alt="rating-45"
+            width="100"
+            height="19.789"
+          />
+          <span class="ratings"> 3157 </span>
+        </div>
+        <span class="price"> $10.90 </span>
+        <select class="custom-select">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+        </select>
+        <div class="added">
+          <img
+            class="checkmark"
+            src="imgs/checkmark.png"
+            alt="checkmark"
+            height="20px"
+            width="20"
+          />
+          <div class="noted">Added</div>
+        </div>
+        <div class="add-cart">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="1">
+        <div class="img">
+          <img
+            src="products/intermediate-composite-basketball.jpg"
+            alt="intermediate-composite-basketball"
+            width="205.289px"
+            height="147.938px"
+          />
+        </div>
+        <p>Intermediate Size Basketball</p>
+        <div class="ratings-container">
+          <img
+            src="ratings/rating-40.png"
+            alt="rating-40"
+            width="100"
+            height="19.789"
+          />
+          <span class="ratings"> 127 </span>
+        </div>
+        <span class="price"> $20.95 </span>
+        <select class="custom-select">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+        </select>
+        <div class="added">
+          <img
+            class="checkmark"
+            src="imgs/checkmark.png"
+            alt="checkmark"
+            height="20px"
+            width="20"
+          />
+          <div class="noted">Added</div>
+        </div>
+        <div class="add-cart">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="1">
+        <div class="img">
+          <img
+            src="products/adults-plain-cotton-tshirt-2-pack-teal.jpg"
+            alt="adults-plain-cotton-tshirt-2-pack-teal"
+            width="205.289px"
+            height="147.938px"
+          />
+        </div>
+        <p>Adults Plain Cotton T-Shirt - 2 Pack</p>
+        <div class="ratings-container">
+          <img
+            src="ratings/rating-45.png"
+            alt="rating-45"
+            width="100"
+            height="19.789"
+          />
+          <span class="ratings"> 56 </span>
+        </div>
+        <span class="price"> $7.99 </span>
+        <select class="custom-select">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+        </select>
+        <div class="added">
+          <img
+            class="checkmark"
+            src="imgs/checkmark.png"
+            alt="checkmark"
+            height="20px"
+            width="20"
+          />
+          <div class="noted">Added</div>
+        </div>
+        <div class="add-cart">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="1">
+        <div class="img">
+          <img
+            src="products/liquid-laundry-detergent-plain.jpg"
+            alt="liquid-laundry-detergent-plain"
+            width="205.289px"
+            height="147.938px"
+          />
+        </div>
+        <p>Liquid Laundry Detergent, 110 Loads</p>
+        <div class="ratings-container">
+          <img
+            src="ratings/rating-40.png"
+            alt="rating-40"
+            width="100"
+            height="19.789"
+          />
+          <span class="ratings"> 317 </span>
+        </div>
+        <span class="price"> $28.99 </span>
+        <select class="custom-select">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+        </select>
+        <div class="added">
+          <img
+            class="checkmark"
+            src="imgs/checkmark.png"
+            alt="checkmark"
+            height="20px"
+            width="20"
+          />
+          <div class="noted">Added</div>
+        </div>
+        <div class="add-cart">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="1">
+        <div class="img">
+          <img
+            src="products/coffeemaker-with-glass-carafe-black.jpg"
+            alt="Coffeemaker with Glass Carafe and Reusable Filter "
+            width="205.289px"
+            height="147.938px"
+          />
+        </div>
+        <p>Coffeemaker with Glass Carafe and Reusable Filter</p>
+        <div class="ratings-container">
+          <img
+            src="ratings/rating-45.png"
+            alt="rating-45"
+            width="100"
+            height="19.789"
+          />
+          <span class="ratings"> 652 </span>
+        </div>
+        <span class="price"> $39.99 </span>
+        <select class="custom-select">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+        </select>
+        <div class="added">
+          <img
+            class="checkmark"
+            src="imgs/checkmark.png"
+            alt="checkmark"
+            height="20px"
+            width="20"
+          />
+          <div class="noted">Added</div>
+        </div>
+        <div class="add-cart">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="1">
+        <div class="img">
+          <img
+            src="products/plain-hooded-fleece-sweatshirt-yellow.jpg"
+            alt="plain-hooded-fleece-sweatshirt-yellow"
+            width="205.289px"
+            height="147.938px"
+          />
+        </div>
+        <p>Plain Hooded Fleece Sweatshirt</p>
+        <div class="ratings-container">
+          <img
+            src="ratings/rating-40.png"
+            alt="rating-40"
+            width="100"
+            height="19.789"
+          />
+          <span class="ratings"> 245 </span>
+        </div>
+        <span class="price"> $15.99 </span>
+        <select class="custom-select">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+        </select>
+        <div class="added">
+          <img
+            class="checkmark"
+            src="imgs/checkmark.png"
+            alt="checkmark"
+            height="20px"
+            width="20"
+          />
+          <div class="noted">Added</div>
+        </div>
+        <div class="add-cart">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="1">
+        <div class="img">
+          <img
+            src="products/women-chiffon-beachwear-coverup-black.jpg"
+            alt="women-chiffon-beachwear-coverup-black"
+            width="205.289px"
+            height="147.938px"
+          />
+        </div>
+        <p>Women's Chiffon Beachwear</p>
+        <div class="ratings-container">
+          <img
+            src="ratings/rating-35.png"
+            alt="rating-35"
+            width="100"
+            height="19.789"
+          />
+          <span class="ratings"> 89 </span>
+        </div>
+        <span class="price"> $21.50 </span>
+        <select class="custom-select">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+        </select>
+        <div class="added">
+          <img
+            class="checkmark"
+            src="imgs/checkmark.png"
+            alt="checkmark"
+            height="20px"
+            width="20"
+          />
+          <div class="noted">Added</div>
+        </div>
+        <div class="add-cart">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="1">
+        <div class="img">
+          <img
+            src="products/vanity-mirror-silver.jpg"
+            alt="vanity-mirror-silver"
+            width="205.289px"
+            height="147.938px"
+          />
+        </div>
+        <p>Round Vanity Mirror with Silver Trim</p>
+        <div class="ratings-container">
+          <img
+            src="ratings/rating-50.png"
+            alt="rating-50"
+            width="100"
+            height="19.789"
+          />
+          <span class="ratings"> 1255 </span>
+        </div>
+        <span class="price"> $35.25 </span>
+        <select class="custom-select">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+        </select>
+        <div class="added">
+          <img
+            class="checkmark"
+            src="imgs/checkmark.png"
+            alt="checkmark"
+            height="20px"
+            width="20"
+          />
+          <div class="noted">Added</div>
+        </div>
+        <div class="add-cart">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="1">
+        <div class="img">
+          <img
+            src="products/duvet-cover-set-blue-twin.jpg"
+            alt="duvet-cover-set-blue-twin"
+            width="205.289px"
+            height="147.938px"
+          />
+        </div>
+        <p>Luxury Soft Duvet Cover Set - Twin</p>
+        <div class="ratings-container">
+          <img
+            src="ratings/rating-40.png"
+            alt="rating-40"
+            width="100"
+            height="19.789"
+          />
+          <span class="ratings"> 432 </span>
+        </div>
+        <span class="price"> $49.99 </span>
+        <select class="custom-select">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+        </select>
+        <div class="added">
+          <img
+            class="checkmark"
+            src="imgs/checkmark.png"
+            alt="checkmark"
+            height="20px"
+            width="20"
+          />
+          <div class="noted">Added</div>
+        </div>
+        <div class="add-cart">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="1">
+        <div class="img">
+          <img
+            src="products/men-slim-fit-summer-shorts-gray.jpg"
+            alt="men-slim-fit-summer-shorts-gray"
+            width="205.289px"
+            height="147.938px"
+          />
+        </div>
+        <p>Men's Slim-Fit Summer Shorts</p>
+        <div class="ratings-container">
+          <img
+            src="ratings/rating-35.png"
+            alt="rating-35"
+            width="100"
+            height="19.789"
+          />
+          <span class="ratings"> 150 </span>
+        </div>
+        <span class="price"> $16.99 </span>
+        <select class="custom-select">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+        </select>
+        <div class="added">
+          <img
+            class="checkmark"
+            src="imgs/checkmark.png"
+            alt="checkmark"
+            height="20px"
+            width="20"
+          />
+          <div class="noted">Added</div>
+        </div>
+        <div class="add-cart">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="1">
+        <div class="img">
+          <img
+            src="products/electric-glass-and-steel-hot-water-kettle.webp"
+            alt="electric-glass-and-steel-hot-water-kettle"
+            width="205.289px"
+            height="147.938px"
+          />
+        </div>
+        <p>Electric Glass and Steel Hot Water Kettle</p>
+        <div class="ratings-container">
+          <img
+            src="ratings/rating-50.png"
+            alt="rating-50"
+            width="100"
+            height="19.789"
+          />
+          <span class="ratings"> 846 </span>
+        </div>
+        <span class="price"> $30.74 </span>
+        <select class="custom-select">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+        </select>
+        <div class="added">
+          <img
+            class="checkmark"
+            src="imgs/checkmark.png"
+            alt="checkmark"
+            height="20px"
+            width="20"
+          />
+          <div class="noted">Added</div>
+        </div>
+        <div class="add-cart">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="1">
+        <div class="img">
+          <img
+            src="products/facial-tissue-2-ply-18-boxes.jpg"
+            alt="facial-tissue-2-ply-18-boxes"
+            width="205.289px"
+            height="147.938px"
+          />
+        </div>
+        <p>2-Ply Facial Tissue - 18 Count</p>
+        <div class="ratings-container">
+          <img
+            src="ratings/rating-40.png"
+            alt="rating-40"
+            width="100"
+            height="19.789"
+          />
+          <span class="ratings"> 99 </span>
+        </div>
+        <span class="price"> $24.35 </span>
+        <select class="custom-select">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+        </select>
+        <div class="added">
+          <img
+            class="checkmark"
+            src="imgs/checkmark.png"
+            alt="checkmark"
+            height="20px"
+            width="20"
+          />
+          <div class="noted">Added</div>
+        </div>
+        <div class="add-cart">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="1">
+        <div class="img">
+          <img
+            src="products/women-stretch-popover-hoodie-black.jpg"
+            alt="women-stretch-popover-hoodie-black"
+            width="205.289px"
+            height="147.938px"
+          />
+        </div>
+        <p>Women's Stretch Popover Hoodie</p>
+        <div class="ratings-container">
+          <img
+            src="ratings/rating-45.png"
+            alt="rating-45"
+            width="100"
+            height="19.789"
+          />
+          <span class="ratings"> 2465 </span>
+        </div>
+        <span class="price"> $32.00 </span>
+        <select class="custom-select">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+        </select>
+        <div class="added">
+          <img
+            class="checkmark"
+            src="imgs/checkmark.png"
+            alt="checkmark"
+            height="20px"
+            width="20"
+          />
+          <div class="noted">Added</div>
+        </div>
+        <div class="add-cart">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="1">
+        <div class="img">
+          <img
+            src="products/bathroom-rug.jpg"
+            alt="bathroom-rug"
+            width="205.289px"
+            height="147.938px"
+          />
+        </div>
+        <p>Non-Slip Bath Rug, Extra Absorbent</p>
+        <div class="ratings-container">
+          <img
+            src="ratings/rating-45.png"
+            alt="rating-45"
+            width="100"
+            height="19.789"
+          />
+          <span class="ratings"> 119 </span>
+        </div>
+        <span class="price"> $12.50 </span>
+        <select class="custom-select">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+        </select>
+        <div class="added">
+          <img
+            class="checkmark"
+            src="imgs/checkmark.png"
+            alt="checkmark"
+            height="20px"
+            width="20"
+          />
+          <div class="noted">Added</div>
+        </div>
+        <div class="add-cart">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="1">
+        <div class="img">
+          <img
+            src="products/women-beach-sandals.jpg"
+            alt="women-beach-sandals"
+            width="205.289px"
+            height="147.938px"
+          />
+        </div>
+        <p>Women's Flip Flop Beach Sandals</p>
+        <div class="ratings-container">
+          <img
+            src="ratings/rating-40.png"
+            alt="rating-40"
+            width="100"
+            height="19.789"
+          />
+          <span class="ratings"> 512 </span>
+        </div>
+        <span class="price"> $14.75 </span>
+        <select class="custom-select">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+        </select>
+        <div class="added">
+          <img
+            class="checkmark"
+            src="imgs/checkmark.png"
+            alt="checkmark"
+            height="20px"
+            width="20"
+          />
+          <div class="noted">Added</div>
+        </div>
+        <div class="add-cart">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="1">
+        <div class="img">
+          <img
+            src="products/6-piece-white-dinner-plate-set.jpg"
+            alt="6 Piece White Dinner Plate Set"
+            width="205.289px"
+            height="147.938px"
+          />
+        </div>
+        <p>6 Piece White Dinner Plate Set</p>
+        <div class="ratings-container">
+          <img
+            src="ratings/rating-50.png"
+            alt="rating-50"
+            width="100"
+            height="19.789"
+          />
+          <span class="ratings"> 312 </span>
+        </div>
+        <span class="price"> $25.99 </span>
+        <select class="custom-select">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+        </select>
+        <div class="added">
+          <img
+            class="checkmark"
+            src="imgs/checkmark.png"
+            alt="checkmark"
+            height="20px"
+            width="20"
+          />
+          <div class="noted">Added</div>
+        </div>
+        <div class="add-cart">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="1">
+        <div class="img">
+          <img
+            src="products/men-navigator-sunglasses-brown.jpg"
+            alt="men-navigator-sunglasses-brown"
+            width="205.289px"
+            height="147.938px"
+          />
+        </div>
+        <p>Men Navigator Sunglasses</p>
+        <div class="ratings-container">
+          <img
+            src="ratings/rating-45.png"
+            alt="rating-45"
+            width="100"
+            height="19.789"
+          />
+          <span class="ratings"> 38 </span>
+        </div>
+        <span class="price"> $12.49 </span>
+        <select class="custom-select">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+        </select>
+        <div class="added">
+          <img
+            class="checkmark"
+            src="imgs/checkmark.png"
+            alt="checkmark"
+            height="20px"
+            width="20"
+          />
+          <div class="noted">Added</div>
+        </div>
+        <div class="add-cart">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="1">
+        <div class="img">
+          <img
+            src="products/coffeemaker-with-glass-carafe-black.jpg"
+            alt="coffeemaker-with-glass-carafe-black"
+            width="205.289px"
+            height="147.938px"
+          />
+        </div>
+        <p>Coffeemaker with Glass Carafe - 12 Cup</p>
+        <div class="ratings-container">
+          <img
+            src="ratings/rating-45.png"
+            alt="rating-45"
+            width="100"
+            height="19.789"
+          />
+          <span class="ratings"> 982 </span>
+        </div>
+        <span class="price"> $22.50 </span>
+        <select class="custom-select">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+        </select>
+        <div class="added">
+          <img
+            class="checkmark"
+            src="imgs/checkmark.png"
+            alt="checkmark"
+            height="20px"
+            width="20"
+          />
+          <div class="noted">Added</div>
+        </div>
+        <div class="add-cart">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="1">
+        <div class="img">
+          <img
+            src="products/blackout-curtain-set-beige.webp"
+            alt="blackout-curtain-set-beige"
+            width="205.289px"
+            height="147.938px"
+          />
+        </div>
+        <p>Blackout Curtain Set - Beige</p>
+        <div class="ratings-container">
+          <img
+            src="ratings/rating-45.png"
+            alt="rating-45"
+            width="100"
+            height="19.789"
+          />
+          <span class="ratings"> 232 </span>
+        </div>
+        <span class="price"> $23.99 </span>
+        <select class="custom-select">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+        </select>
+        <div class="added">
+          <img
+            class="checkmark"
+            src="imgs/checkmark.png"
+            alt="checkmark"
+            height="20px"
+            width="20"
+          />
+          <div class="noted">Added</div>
+        </div>
+        <div class="add-cart">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="1">
+        <div class="img">
+          <img
+            src="products/men-cozy-fleece-zip-up-hoodie-red.jpg"
+            alt="men-cozy-fleece-zip-up-hoodie-red"
+            width="205.289px"
+            height="147.938px"
+          />
+        </div>
+        <p>Men's Cozy Fleece Zip-Up Hoodie</p>
+        <div class="ratings-container">
+          <img
+            src="ratings/rating-45.png"
+            alt="rating-45"
+            width="100"
+            height="19.789"
+          />
+          <span class="ratings"> 317 </span>
+        </div>
+        <span class="price"> $24.00 </span>
+        <select class="custom-select">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+        </select>
+        <div class="added">
+          <img
+            class="checkmark"
+            src="imgs/checkmark.png"
+            alt="checkmark"
+            height="20px"
+            width="20"
+          />
+          <div class="noted">Added</div>
+        </div>
+        <div class="add-cart">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="1">
+        <div class="img">
+          <img
+            src="products/trash-can-with-foot-pedal-50-liter.jpg"
+            alt="trash-can-with-foot-pedal-50-liter"
+            width="205.289px"
+            height="147.938px"
+          />
+        </div>
+        <p>50 Litres Trash Can with Lid</p>
+        <div class="ratings-container">
+          <img
+            src="ratings/rating-45.png"
+            alt="rating-45"
+            width="100"
+            height="19.789"
+          />
+          <span class="ratings"> 3096 </span>
+        </div>
+        <span class="price"> $22.88 </span>
+        <select class="custom-select">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+        </select>
+        <div class="added">
+          <img
+            class="checkmark"
+            src="imgs/checkmark.png"
+            alt="checkmark"
+            height="20px"
+            width="20"
+          />
+          <div class="noted">Added</div>
+        </div>
+        <div class="add-cart">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="1">
+        <div class="img">
+          <img
+            src="products/sky-flower-stud-earrings.webp"
+            alt="sky-flower-stud-earrings"
+            width="205.289px"
+            height="147.938px"
+          />
+        </div>
+        <p>Sterling Silver Sky Flower Stud Earrings</p>
+        <div class="ratings-container">
+          <img
+            src="ratings/rating-40.png"
+            alt="rating-40"
+            width="100"
+            height="19.789"
+          />
+          <span class="ratings"> 52 </span>
+        </div>
+        <span class="price"> $17.99 </span>
+        <select class="custom-select">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+        </select>
+        <div class="added">
+          <img
+            class="checkmark"
+            src="imgs/checkmark.png"
+            alt="checkmark"
+            height="20px"
+            width="20"
+          />
+          <div class="noted">Added</div>
+        </div>
+        <div class="add-cart">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="1">
+        <div class="img">
+          <img
+            src="products/knit-athletic-sneakers-gray.jpg"
+            alt="knit-athletic-sneakers-gray"
+            width="205.289px"
+            height="147.938px"
+          />
+        </div>
+        <p>Water-Resistant Knit Athletic Sneakers</p>
+        <div class="ratings-container">
+          <img
+            src="ratings/rating-40.png"
+            alt="rating-40"
+            width="100"
+            height="19.789"
+          />
+          <span class="ratings"> 728 </span>
+        </div>
+        <span class="price"> $33.90 </span>
+        <select class="custom-select">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+        </select>
+        <div class="added">
+          <img
+            class="checkmark"
+            src="imgs/checkmark.png"
+            alt="checkmark"
+            height="20px"
+            width="20"
+          />
+          <div class="noted">Added</div>
+        </div>
+        <div class="add-cart">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="1">
+        <div class="img">
+          <img
+            src="products/women-knit-ballet-flat-black.jpg"
+            alt="Women's Knit Ballet Flat
+"
+            width="205.289px"
+            height="147.938px"
+          />
+        </div>
+        <p>Women's Knit Ballet Flat</p>
+        <div class="ratings-container">
+          <img
+            src="ratings/rating-40.png"
+            alt="rating-40"
+            width="100"
+            height="19.789"
+          />
+          <span class="ratings"> 1345 </span>
+        </div>
+        <span class="price"> $17.99 </span>
+        <select class="custom-select">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+        </select>
+        <div class="added">
+          <img
+            class="checkmark"
+            src="imgs/checkmark.png"
+            alt="checkmark"
+            height="20px"
+            width="20"
+          />
+          <div class="noted">Added</div>
+        </div>
+        <div class="add-cart">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="1">
+        <div class="img">
+          <img
+            src="products/men-golf-polo-t-shirt-blue.jpg"
+            alt="men-golf-polo-t-shirt-blue"
+            width="205.289px"
+            height="147.938px"
+          />
+        </div>
+        <p>Men's Regular-Fit Quick-Dry Golf Polo</p>
+        <div class="ratings-container">
+          <img
+            src="ratings/rating-45.png"
+            alt="rating-45"
+            width="100"
+            height="19.789"
+          />
+          <span class="ratings"> 2556 </span>
+        </div>
+        <span class="price"> $15.99 </span>
+        <select class="custom-select">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+        </select>
+        <div class="added">
+          <img
+            class="checkmark"
+            src="imgs/checkmark.png"
+            alt="checkmark"
+            height="20px"
+            width="20"
+          />
+          <div class="noted">Added</div>
+        </div>
+        <div class="add-cart">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="1">
+        <div class="img">
+          <img
+            src="products/kitchen-paper-towels-30-pack.jpg"
+            alt="kitchen-paper-towels-30-pack"
+            width="205.289px"
+            height="147.938px"
+          />
+        </div>
+        <p>2-Ply Kitchen Paper Towels - 30 Pack</p>
+        <div class="ratings-container">
+          <img
+            src="ratings/rating-45.png"
+            alt="rating-45"
+            width="100"
+            height="19.789"
+          />
+          <span class="ratings"> 1211 </span>
+        </div>
+        <span class="price"> $35.49 </span>
+        <select class="custom-select">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+        </select>
+        <div class="added">
+          <img
+            class="checkmark"
+            src="imgs/checkmark.png"
+            alt="checkmark"
+            height="20px"
+            width="20"
+          />
+          <div class="noted">Added</div>
+        </div>
+        <div class="add-cart">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="1">
+        <div class="img">
+          <img
+            src="products/men-chino-pants-beige.jpg"
+            alt="men-chino-pants-beige"
+            width="205.289px"
+            height="147.938px"
+          />
+        </div>
+        <p>Men's Classic-Fit 5-Pocket Chino Pant</p>
+        <div class="ratings-container">
+          <img
+            src="ratings/rating-45.png"
+            alt="rating-45"
+            width="100"
+            height="19.789"
+          />
+          <span class="ratings"> 949 </span>
+        </div>
+        <span class="price"> $25.00 </span>
+        <select class="custom-select">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+        </select>
+        <div class="added">
+          <img
+            class="checkmark"
+            src="imgs/checkmark.png"
+            alt="checkmark"
+            height="20px"
+            width="20"
+          />
+          <div class="noted">Added</div>
+        </div>
+        <div class="add-cart">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="1">
+        <div class="img">
+          <img
+            src="products/round-sunglasses-black.jpg"
+            alt="Round Sunglasses"
+            width="205.289px"
+            height="147.938px"
+          />
+        </div>
+        <p>Round Sunglasses</p>
+        <div class="ratings-container">
+          <img
+            src="ratings/rating-35.png"
+            alt="rating-35"
+            width="100"
+            height="19.789"
+          />
+          <span class="ratings"> 48 </span>
+        </div>
+        <span class="price"> $22.99 </span>
+        <select class="custom-select">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+        </select>
+        <div class="added">
+          <img
+            class="checkmark"
+            src="imgs/checkmark.png"
+            alt="checkmark"
+            height="20px"
+            width="20"
+          />
+          <div class="noted">Added</div>
+        </div>
+        <div class="add-cart">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="1">
+        <div class="img">
+          <img
+            src="products/floral-mixing-bowl-set.jpg"
+            alt="floral-mixing-bowl-set"
+            width="205.289px"
+            height="147.938px"
+          />
+        </div>
+        <p>Floral Design Melamine Mixing Bowl Set</p>
+        <div class="ratings-container">
+          <img
+            src="ratings/rating-50.png"
+            alt="rating-50"
+            width="100"
+            height="19.789"
+          />
+          <span class="ratings"> 88 </span>
+        </div>
+        <span class="price"> $32.67 </span>
+        <select class="custom-select">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+        </select>
+        <div class="added">
+          <img
+            class="checkmark"
+            src="imgs/checkmark.png"
+            alt="checkmark"
+            height="20px"
+            width="20"
+          />
+          <div class="noted">Added</div>
+        </div>
+        <div class="add-cart">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="1">
+        <div class="img">
+          <img
+            src="products/silicone-cooking-utensils-set.webp"
+            alt="silicone-cooking-utensils-set"
+            width="205.289px"
+            height="147.938px"
+          />
+        </div>
+        <p>17-Piece Silicone Cooking Utensils Set</p>
+        <div class="ratings-container">
+          <img
+            src="ratings/rating-45.png"
+            alt="rating-45"
+            width="100"
+            height="19.789"
+          />
+          <span class="ratings"> 775 </span>
+        </div>
+        <span class="price"> $21.99 </span>
+        <select class="custom-select">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+        </select>
+        <div class="added">
+          <img
+            class="checkmark"
+            src="imgs/checkmark.png"
+            alt="checkmark"
+            height="20px"
+            width="20"
+          />
+          <div class="noted">Added</div>
+        </div>
+        <div class="add-cart">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="1">
+        <div class="img">
+          <img
+            src="products/knit-athletic-sneakers-gray.jpg"
+            alt="women-running-sneakers-gray"
+            width="205.289px"
+            height="147.938px"
+          />
+        </div>
+        <p>Women's Lightweight Running Sneakers</p>
+        <div class="ratings-container">
+          <img
+            src="ratings/rating-40.png"
+            alt="rating-40"
+            width="100"
+            height="19.789"
+          />
+          <span class="ratings"> 229 </span>
+        </div>
+        <span class="price"> $38.90 </span>
+        <select class="custom-select">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+        </select>
+        <div class="added">
+          <img
+            class="checkmark"
+            src="imgs/checkmark.png"
+            alt="checkmark"
+            height="20px"
+            width="20"
+          />
+          <div class="noted">Added</div>
+        </div>
+        <div class="add-cart">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="1">
+        <div class="img">
+          <img
+            src="products/double-elongated-twist-french-wire-earrings.webp"
+            alt="double-elongated-twist-french-wire-earrings"
+            width="205.289px"
+            height="147.938px"
+          />
+        </div>
+        <p>Double Oval Twist French Wire Earrings</p>
+        <div class="ratings-container">
+          <img
+            src="ratings/rating-45.png"
+            alt="rating-45"
+            width="100"
+            height="19.789"
+          />
+          <span class="ratings"> 2211 </span>
+        </div>
+        <span class="price"> $14.99 </span>
+        <select class="custom-select">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+        </select>
+        <div class="added">
+          <img
+            class="checkmark"
+            src="imgs/checkmark.png"
+            alt="checkmark"
+            height="20px"
+            width="20"
+          />
+          <div class="noted">Added</div>
+        </div>
+        <div class="add-cart">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="1">
+        <div class="img">
+          <img
+            src="products/straw-sunhat.webp"
+            alt="straw-sunhat"
+            width="205.289px"
+            height="147.938px"
+          />
+        </div>
+        <p>Straw Lifeguard Sun Hat</p>
+        <div class="ratings-container">
+          <img
+            src="ratings/rating-45.png"
+            alt="rating-45"
+            width="100"
+            height="19.789"
+          />
+          <span class="ratings"> 5147 </span>
+        </div>
+        <span class="price"> $20.90 </span>
+        <select class="custom-select">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+        </select>
+        <div class="added">
+          <img
+            class="checkmark"
+            src="imgs/checkmark.png"
+            alt="checkmark"
+            height="20px"
+            width="20"
+          />
+          <div class="noted">Added</div>
+        </div>
+        <div class="add-cart">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="1">
+        <div class="img">
+          <img
+            src="products/countertop-blender-64-oz.jpg"
+            alt="countertop-blender-64-oz"
+            width="205.289px"
+            height="147.938px"
+          />
+        </div>
+        <p>High-Speed Countertop Blender, 64oz</p>
+        <div class="ratings-container">
+          <img
+            src="ratings/rating-40.png"
+            alt="rating-40"
+            width="100"
+            height="19.789"
+          />
+          <span class="ratings"> 3 </span>
+        </div>
+        <span class="price"> $107.51 </span>
+        <select class="custom-select">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+        </select>
+        <div class="added">
+          <img
+            class="checkmark"
+            src="imgs/checkmark.png"
+            alt="checkmark"
+            height="20px"
+            width="20"
+          />
+          <div class="noted">Added</div>
+        </div>
+        <div class="add-cart">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+      <!-- End of  product cards -->
+    </div>
+    <script src="menu.js"></script>
+  </body>
 </html>

@@ -1,0 +1,158 @@
+.main {
+  display: grid;
+
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(5, 435.5px);
+}
+.main > div {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 25px;
+  border-right: 1px solid rgb(231, 231, 231);
+  border-bottom: 1px solid rgb(231, 231, 231);
+}
+.ratings-container {
+  padding: 0 !important;
+  display: flex;
+  flex-direction: row;
+  height: 30px;
+}
+p {
+  margin: 0;
+  margin-bottom: 5px;
+}
+img {
+  margin-bottom: 20px;
+}
+.ratings {
+  color: #3498db;
+  padding: 0;
+  margin-top: 2px;
+  margin-left: 6px;
+}
+
+.price {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.custom-select {
+  color: rgb(33, 33, 33);
+  background-color: rgb(240, 240, 240);
+  font-size: 15px;
+  box-shadow: rgba(213, 217, 217, 0.5) 0px 2px 5px;
+
+  border-color: rgb(213, 217, 217);
+  border-radius: 8px;
+  padding: 3px 5px;
+  width: 50px;
+}
+.added {
+  display: flex;
+  align-items: center;
+  display: none;
+}
+.checkmark {
+  position: relative;
+  top: 17px;
+  margin: 0%;
+}
+.noted {
+  position: relative;
+  top: 17.8px;
+  color: rgb(6, 125, 98);
+  margin-left: 5px;
+}
+.add-cart {
+  margin-top: 35px;
+  display: flex;
+  justify-content: center;
+}
+.add-cart > button {
+  color: rgb(33, 33, 33);
+  background-color: rgb(255, 216, 20);
+  border-radius: 50px;
+  padding: 8px;
+  width: 100%;
+  height: 33px;
+  border: none;
+}
+.amazon {
+  display: none;
+  height: 34px;
+  width: 35px;
+}
+
+@media (max-width: 2000px) {
+  .main {
+    grid-template-columns: repeat(7, 1fr);
+  }
+}
+
+@media (max-width: 1780px) {
+  .main {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media (max-width: 1535px) {
+  .main {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .middle {
+    min-width: 140px;
+  }
+}
+
+@media (max-width: 1275px) {
+  .main {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 1025px) {
+  .main {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 782px) {
+  .main {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #amazon,
+  .menu {
+    display: none;
+  }
+  .left {
+    display: flex;
+    justify-content: center;
+    min-width: 70px;
+  }
+  #ro,
+  #cart {
+    display: none;
+  }
+  .right {
+    min-width: 50px;
+    justify-content: center;
+    position: relative;
+    top: 17px;
+    left: 5px;
+  }
+  .amazon {
+    display: block;
+    position: relative;
+    top: 20%;
+    right: 8px;
+  }
+  .menu {
+    display: block;
+  }
+}
+
+@media (max-width: 547px) {
+  .main {
+    grid-template-columns: 1fr;
+  }
+}
