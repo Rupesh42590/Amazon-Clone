@@ -119,7 +119,7 @@ export const products = [
     priceCents: 3390,
     keywords: ["shoes", "running shoes", "footwear"],
   },
-  
+
   {
     id: "aad29d11-ea98-41ee-9285-b916638cac4a",
     image: "images/products/round-sunglasses-black.jpg",

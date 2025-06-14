@@ -1,0 +1,25 @@
+.checkout-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  font-family: Roboto, Arial;
+    color: rgb(33, 33, 33);
+    font-size: 24px;
+    font-weight: 570;
+    font-family: Roboto, Arial;
+    margin-bottom: 70px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.checkout-body {
+    display: flex;
+    padding: 0 100px;
+}
+.checkout-body-left-title {
+    font-weight: 700;
+    font-size: 22px;
+    margin-bottom: 18px;
+}

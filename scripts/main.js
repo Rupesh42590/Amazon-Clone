@@ -1,7 +1,8 @@
 import { products } from "./products.js";
+import { cart } from "./checkout.js";
 products.forEach((product) => {
-    let productHTML = `
-        <div class="1">
+  let productHTML = `
+    <div class="product-container" data-product-id="${product.id}">
         <div class="img">
           <img
             src="${product.image}"
@@ -20,7 +21,9 @@ products.forEach((product) => {
           />
           <span class="ratings"> ${product.rating.count} </span>
         </div>
-        <span class="price"> $${Math.round(product.priceCents / 100).toFixed(2)} </span>
+        <span class="price"> $${Math.round(product.priceCents / 100).toFixed(
+          2
+        )} </span>
         <select class="custom-select">
           <option value="1">1</option>
           <option value="2">2</option>
@@ -43,10 +46,10 @@ products.forEach((product) => {
           <option value="19">19</option>
           <option value="20">20</option>
         </select>
-        <div class="added">
+        <div class="added hidden">
           <img
             class="checkmark"
-            src="imgs/checkmark.png"
+            src="images/checkmark.png"
             alt="checkmark"
             height="20px"
             width="20"
@@ -55,9 +58,11 @@ products.forEach((product) => {
         </div>
 
         <div class="add-cart">
-          <button>Add to Cart</button>
+          <button class="add-cart-button ">Add to Cart</button>
         </div>
-      </div>
+    </div>
     `;
-    document.querySelector(".main").innerHTML += productHTML;
+  document.querySelector(".main").innerHTML += productHTML;
 });
+
+cart();
