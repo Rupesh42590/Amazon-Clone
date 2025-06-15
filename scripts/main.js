@@ -1,5 +1,5 @@
 import { products } from "./products.js";
-import { cart } from "./checkout.js";
+import { initializeCartFunctionality } from "./checkout.js";
 products.forEach((product) => {
   let productHTML = `
     <div class="product-container" data-product-id="${product.id}">
@@ -65,4 +65,4 @@ products.forEach((product) => {
   document.querySelector(".main").innerHTML += productHTML;
 });
 
-cart();
+initializeCartFunctionality();

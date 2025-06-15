@@ -66,7 +66,7 @@ input {
 }
 .ci {
   height: 34.609px;
-  width: 50px;
+  width: 56px;
 }
 .right {
   height: 48.609px;
@@ -88,10 +88,15 @@ input {
   font-size: 15px;
 }
 .cart-q {
+  width: 15px;
+  height: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: rgb(240, 136, 4);
   position: absolute;
-  top: 5px;
-  left: 31px;
+  top: 6px;
+  left: 32px;
 }
 .c {
   color: white;
@@ -110,9 +115,7 @@ input {
   justify-content: center;
   height: 150px;
 }
-.menu {
-  display: none;
-}
+
 #menu {
   background-color: rgb(19, 25, 33);
   position: sticky;
