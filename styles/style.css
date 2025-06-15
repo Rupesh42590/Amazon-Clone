@@ -26,6 +26,7 @@ body {
   border-bottom-right-radius: 4px;
   background-color: rgb(254, 189, 105);
   border: none;
+  cursor: pointer;
 }
 input {
   border-top-right-radius: 0%;
@@ -96,7 +97,7 @@ input {
   color: rgb(240, 136, 4);
   position: absolute;
   top: 6px;
-  left: 32px;
+  left: 30px;
 }
 .c {
   color: white;
@@ -125,9 +126,9 @@ input {
 }
 .RO {
   color: white;
-  display: none;
   padding: 10px;
   font-weight: 500;
+  cursor: pointer;
 }
 .returns-menu {
   display: flex;
@@ -146,7 +147,6 @@ input {
 }
 .cm {
   color: white;
-  display: none;
   padding: 10px;
   padding-bottom: 20px;
   font-weight: 500;
@@ -157,4 +157,14 @@ p {
 .img > img {
   object-fit: contain;
   height: 90%;
+}
+.menu {
+  display: none;
+  cursor: pointer;
+}
+.returns-menu:hover {
+  background-color: rgb(19, 33, 44);
+}
+.cart-menu:hover {
+  background-color: rgb(19, 33, 44);
 }

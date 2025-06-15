@@ -63,7 +63,9 @@ products.forEach((product) => {
         </div>
     </div>
     `;
+    
   document.querySelector(".main").innerHTML += productHTML;
 });
 
 shoppingCart.initializeCartFunctionality();
+shoppingCart.showMenu();

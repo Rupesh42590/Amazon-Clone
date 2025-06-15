@@ -1,6 +1,8 @@
 import { products } from "./products.js";
 class ShoppingCart {
   cart;
+  cartQuantity=0;
+  headerCartQuantity=0;
   constructor() {
     this.cart = JSON.parse(localStorage.getItem("cart")) || [];
   }
@@ -22,15 +24,17 @@ class ShoppingCart {
           10
         ),
       });
-      localStorage.setItem("cart", JSON.stringify(cart));
+      localStorage.setItem("cart", JSON.stringify(this.cart));
     }
   }
   updateCartQuantity(button) {
     let cartQuantity = 0;
+    
     this.cart.forEach((item) => {
       cartQuantity += item.quantity;
     });
     document.querySelector(".cart-q").textContent = cartQuantity;
+    this.updateMenu();
     button
       .closest(".product-container")
       .querySelector(".added ")
@@ -44,30 +48,43 @@ class ShoppingCart {
   }
 
   updateHeaderCartQuantity() {
-    let cartQuantity = 0;
+    this.cartQuantity = 0;
     this.cart.forEach((item) => {
-      cartQuantity += item.quantity;
+      this.cartQuantity += item.quantity;
     });
-    document.querySelector(".cart-q").textContent = cartQuantity;
+    document.querySelector(".cart-q").textContent = this.cartQuantity;
+        
   }
-  updateHeaderCartQuantity() {
-    let cartQuantity = 0;
-    this.cart.forEach((item) => {
-      cartQuantity += item.quantity;
-    });
-    document.querySelector(".cart-q").textContent = cartQuantity;
-  }
+
   initializeCartFunctionality() {
     this.updateHeaderCartQuantity();
+    this.updateMenu();
     document.querySelectorAll(".add-cart-button").forEach((button) => {
       button.addEventListener("click", () => {
+
         const productId =
           button.closest(".product-container").dataset.productId;
 
         this.addToCart(productId, button);
         this.updateCartQuantity(button);
+        
+
       });
     });
   }
+  updateMenu(){
+      this.headerCartQuantity = 0;
+      this.cart.forEach((item) => {
+        this.headerCartQuantity += item.quantity;
+      });
+    document.querySelector(".cm").innerHTML = `Cart (<span class="cq">${this.headerCartQuantity}</span>)`;
+    }
+  showMenu() {
+    document.querySelector(".menu").addEventListener("click", () => {       
+      document.querySelector(".RO").classList.toggle("hidden");
+      document.querySelector(".cm").classList.toggle("hidden");
+    });
+  }
+
 }
 export default ShoppingCart;
