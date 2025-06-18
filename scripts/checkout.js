@@ -1,8 +1,8 @@
 import { products } from "./products.js";
 class ShoppingCart {
   cart;
-  cartQuantity=0;
-  headerCartQuantity=0;
+  cartQuantity = 0;
+  headerCartQuantity = 0;
   constructor() {
     this.cart = JSON.parse(localStorage.getItem("cart")) || [];
   }
@@ -29,7 +29,7 @@ class ShoppingCart {
   }
   updateCartQuantity(button) {
     let cartQuantity = 0;
-    
+
     this.cart.forEach((item) => {
       cartQuantity += item.quantity;
     });
@@ -53,7 +53,6 @@ class ShoppingCart {
       this.cartQuantity += item.quantity;
     });
     document.querySelector(".cart-q").textContent = this.cartQuantity;
-        
   }
 
   initializeCartFunctionality() {
@@ -61,30 +60,38 @@ class ShoppingCart {
     this.updateMenu();
     document.querySelectorAll(".add-cart-button").forEach((button) => {
       button.addEventListener("click", () => {
-
         const productId =
           button.closest(".product-container").dataset.productId;
 
         this.addToCart(productId, button);
         this.updateCartQuantity(button);
-        
-
       });
     });
   }
-  updateMenu(){
-      this.headerCartQuantity = 0;
-      this.cart.forEach((item) => {
-        this.headerCartQuantity += item.quantity;
-      });
-    document.querySelector(".cm").innerHTML = `Cart (<span class="cq">${this.headerCartQuantity}</span>)`;
-    }
+  updateMenu() {
+    this.headerCartQuantity = 0;
+    this.cart.forEach((item) => {
+      this.headerCartQuantity += item.quantity;
+    });
+    document.querySelector(
+      ".cm"
+    ).innerHTML = `Cart (<span class="cq">${this.headerCartQuantity}</span>)`;
+  }
+  updateCartMenu() {
+    this.headerCartQuantity = 0;
+    this.cart.forEach((item) => {
+      this.headerCartQuantity += item.quantity;
+    });
+    document.querySelector(
+      ".checkout-header-content"
+    ).innerHTML = `Checkout (<span class="items">${this.headerCartQuantity} items</span>)`;
+  }
+
   showMenu() {
-    document.querySelector(".menu").addEventListener("click", () => {       
+    document.querySelector(".menu").addEventListener("click", () => {
       document.querySelector(".RO").classList.toggle("hidden");
       document.querySelector(".cm").classList.toggle("hidden");
     });
   }
-
 }
 export default ShoppingCart;

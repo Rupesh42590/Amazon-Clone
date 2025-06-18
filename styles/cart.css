@@ -3,7 +3,6 @@
   justify-content: center;
   align-items: center;
   height: 60px;
-  font-family: Roboto, Arial;
   color: rgb(33, 33, 33);
   font-size: 24px;
   font-weight: 570;
@@ -18,6 +17,7 @@
   padding: 0 100px;
   margin: 0px;
   width: 1200px;
+  font-family: Roboto, Arial;
 }
 .checkout-body-left-title {
   font-weight: 700;
@@ -37,7 +37,6 @@
   font-size: medium;
   box-shadow: rgba(213, 217, 217, 0.5) 0px 2px 5px;
   cursor: pointer;
-
 }
 .checkout-body-left-button:hover {
   background-color: rgb(230, 195, 0);
@@ -48,31 +47,28 @@
   align-items: center;
   margin-bottom: 10px;
   font-size: large;
-  
 }
 .checkout-body > div {
   padding: 0 30px;
 }
 
-.checkout-body-bottom{
+.checkout-body-bottom {
   padding: 0 30px;
-
 }
-.items{
-    
-    color: rgb(0, 113, 133);
-    font-size: 23px;
-    text-decoration: none;
-    cursor: pointer;
+.items {
+  color: rgb(0, 113, 133);
+  font-size: 23px;
+  text-decoration: none;
+  cursor: pointer;
 }
-.js-payment-info{
+.js-payment-info {
   border-radius: 5px;
   border: 1px solid rgb(222, 222, 222);
 
-  padding: 19px ;
+  padding: 19px;
   display: flex;
   flex-direction: column;
-  
+
   position: sticky;
   top: 0;
   left: 0;
@@ -80,49 +76,42 @@
   width: 447px;
   height: 279px;
   margin-left: auto;
- 
-  
-
 }
 
-.payment-summary-title{
+.payment-summary-title {
   font-weight: 700;
   font-size: 18px;
   margin-bottom: 12px;
-
 }
 .payment-summary-row {
   margin-bottom: 10px;
   display: flex;
-  
 }
-.payment-summary-money{
+.payment-summary-money {
   margin-left: auto;
 }
 
-.tax{
-
-  border-top: 1px solid rgb(222, 222, 222);  padding-top: 9px;
-}
-#tax{
+.tax {
+  border-top: 1px solid rgb(222, 222, 222);
   padding-top: 9px;
-
 }
-.total-row{
+#tax {
+  padding-top: 9px;
+}
+.total-row {
   color: rgb(177, 39, 4);
   font-weight: 700;
   font-size: 18px;
-  border-top: 1px solid rgb(222, 222, 222);  
- 
+  border-top: 1px solid rgb(222, 222, 222);
 }
-.total-row div{
+.total-row div {
   padding-top: 18px;
 }
-.order-button{
+.order-button {
   display: flex;
   justify-content: center;
 }
-.place-order{
+.place-order {
   color: rgb(33, 33, 33);
   background-color: rgb(255, 216, 20);
   border-radius: 10px;
@@ -135,17 +124,16 @@
   width: 100%;
   margin-top: 20px;
 }
-.no-items{
-  
-opacity: 0.4;
+.no-items {
+  opacity: 0.4;
 }
-main{
+main {
   display: flex;
   justify-content: center;
 }
-.empty-cart{
+.empty-cart {
   display: grid;
-  grid-template-columns:55% 45%;
+  grid-template-columns: 55% 45%;
   align-items: start;
   gap: 10px;
 }

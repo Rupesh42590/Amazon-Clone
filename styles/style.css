@@ -168,3 +168,7 @@ p {
 .cart-menu:hover {
   background-color: rgb(19, 33, 44);
 }
+.input-form {
+  display: flex;
+  min-width: 0px;
+}

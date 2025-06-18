@@ -1,8 +1,10 @@
+import ShoppingCart from "./checkout.js";
+const shoppingCart = new ShoppingCart();
 class Checkout {
   cartBody() {
     let cartBody = `
   <div class="checkout-header">
-    <span class="checkout-header-content">Checkout (<span class="items"> items</span>)</span>
+    <div class="checkout-header-content">Checkout (<span class="items">0 items</span>)</div>
 </div>
 <main>
 <div class="checkout-body">
@@ -69,5 +71,11 @@ class Checkout {
     document.querySelector("body").innerHTML = cartBody;
   }
 }
+
+class AddToCart{
+  
+  
+}
 const cart = new Checkout();
 cart.cartBody();
+shoppingCart.updateCartMenu();
