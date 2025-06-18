@@ -71,11 +71,6 @@ class Checkout {
     document.querySelector("body").innerHTML = cartBody;
   }
 }
-
-class AddToCart{
-  
-  
-}
 const cart = new Checkout();
 cart.cartBody();
 shoppingCart.updateCartMenu();
