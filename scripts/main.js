@@ -68,7 +68,6 @@ class RenderProducts {
 
       document.querySelector(".main").innerHTML += productHTML;
       shoppingCart.initializeCartFunctionality();
-      shoppingCart.showMenu();
     });
   }
   clearHTML() {
@@ -97,3 +96,4 @@ class SearchBar {
   }
 }
 const searchBar = new SearchBar();
+shoppingCart.showMenu();

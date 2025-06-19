@@ -1,26 +1,36 @@
 import ShoppingCart from "./checkout.js";
-const shoppingCart = new ShoppingCart();
 class Checkout {
+  updateHTML;
+  cartIsEmpty;
+  constructor() {
+    this.updateHTML = shoppingCart.updateHTML;
+    shoppingCart.cart.length === 0
+      ? (this.cartIsEmpty = true)
+      : (this.cartIsEmpty = false);
+  }
+  orderColor() {
+    if (this.cartIsEmpty === false) {
+      document.querySelector(".order-button").classList.remove("no-items");
+      document.querySelector(".place-order").classList.add("hover-color");
+    }
+  }
+
   cartBody() {
     let cartBody = `
   <div class="checkout-header">
+  <a class="checkout-header-link" href="index.html">
     <div class="checkout-header-content">Checkout (<span class="items">0 items</span>)</div>
+    </a>
 </div>
-<main>
 <div class="checkout-body">
-    <div class="checkout-body-left">
-        <p class="checkout-body-left-title">Review your order</p>
-
-
-    </div>
-    <section class="checkout-body-bottom">
-        <div class="checkout-body-left-content">Your cart is empty.</div>
+    
+        
         <div class="empty-cart">
-        <a href="index.html">
-            <button class="checkout-body-left-button">Continue shopping</button>
-        </a>
+        ${this.updateHTML}
 
-            <div class="js-payment-info">
+            
+        </div>
+<div class="js-payment-info">
                 <div class="payment-summary-title">
                     Order Summary
                 </div>
@@ -59,18 +69,96 @@ class Checkout {
                         $0.00
                     </div>
                 </div>
-                <div class="order-button no-items">
+                <div class="order-button  no-items">
                 <button class="place-order">Place your order</button>
                 </div>
             </div>
-        </div>
-    </section>
+
+    
 </div>
-</main>
     `;
+
     document.querySelector("body").innerHTML = cartBody;
   }
+  delete() {
+    document.querySelectorAll(".js-delete-quantity-link").forEach((button) => {
+      button.addEventListener("click", () => {
+        shoppingCart.cart = shoppingCart.cart.filter(
+          (item) => item.productId !== button.dataset.cartItemId
+        );
+        localStorage.setItem("cart", JSON.stringify(shoppingCart.cart));
+        renderPage();
+      });
+    });
+  }
+  updateQuantity() {
+    document.querySelectorAll(".js-update-quantity-link").forEach((button) => {
+      button.addEventListener("click", () => {
+        button
+          .closest(".js-cart-item")
+          .querySelector(".js-new-quantity-input")
+          .classList.remove("hidden");
+        button
+          .closest(".js-cart-item")
+          .querySelector(".js-save-quantity-link")
+          .classList.remove("hidden");
+        button
+          .closest(".js-cart-item")
+          .querySelector(".js-update-quantity-link")
+          .classList.add("hidden");
+      });
+    });
+  }
+  saveQuantity() {
+    document.querySelectorAll(".js-save-quantity-link").forEach((button) => {
+      button.addEventListener("click", () => {
+        button
+          .closest(".js-cart-item")
+          .querySelector(".js-new-quantity-input")
+          .classList.add("hidden");
+        button
+          .closest(".js-cart-item")
+          .querySelector(".js-save-quantity-link")
+          .classList.add("hidden");
+        button
+          .closest(".js-cart-item")
+          .querySelector(".js-update-quantity-link")
+          .classList.remove("hidden");
+        const productId = button.closest(".js-cart-item").dataset.cartItemId;
+        const newQuantity = parseInt(
+          button
+            .closest(".js-cart-item")
+            .querySelector(".js-new-quantity-input").value
+        );
+
+        shoppingCart.cart = shoppingCart.cart.map((item) => {
+          if (item.productId === productId) {
+            return { ...item, quantity: newQuantity };
+          }
+          return item;
+        });
+        localStorage.setItem("cart", JSON.stringify(shoppingCart.cart));
+
+        renderPage();
+      });
+    });
+  }
 }
-const cart = new Checkout();
-cart.cartBody();
-shoppingCart.updateCartMenu();
+const shoppingCart = new ShoppingCart();
+
+function renderPage() {
+  shoppingCart.updateCartBody();
+
+  const cart = new Checkout(shoppingCart);
+  cart.cartBody();
+  shoppingCart.updateCartMenu();
+
+  cart.orderColor();
+  shoppingCart.updateCartMenu();
+
+  cart.delete();
+  cart.updateQuantity();
+  cart.saveQuantity();
+}
+
+renderPage();
