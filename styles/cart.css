@@ -18,6 +18,7 @@
 .checkout-header-link {
   text-decoration: none;
   color: rgb(33, 33, 33);
+
 }
 .checkout-header-link:hover {
   color: rgb(156, 34, 34);
@@ -268,5 +269,15 @@ body {
   }
   .cart-item-details {
     max-width: 100%;
+  }
+}
+@media (max-width: 359px) {
+  .cart-item-container {
+    height: 500px;
+  }
+}
+@media (max-width: 285px) {
+  .cart-item-container {
+    height: 550px;
   }
 }

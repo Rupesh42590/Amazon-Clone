@@ -1,6 +1,8 @@
-import ShoppingCart from "./checkout.js";
+import shoppingCart from "./checkout.js";
+import { products } from "./products.js";
 class Checkout {
   updateHTML;
+  updateOrder='';
   cartIsEmpty;
   constructor() {
     this.updateHTML = shoppingCart.updateHTML;
@@ -79,7 +81,12 @@ class Checkout {
     `;
 
     document.querySelector("body").innerHTML = cartBody;
+    shoppingCart.updateDate();
+    document.querySelectorAll(".js-delivery-date").forEach((button)=>{
+      button.closest(".delivery-date").querySelector(".js-delivery-date").textContent=shoppingCart.deliveryDate;
+    })
   }
+  
   delete() {
     document.querySelectorAll(".js-delete-quantity-link").forEach((button) => {
       button.addEventListener("click", () => {
@@ -88,6 +95,7 @@ class Checkout {
         );
         localStorage.setItem("cart", JSON.stringify(shoppingCart.cart));
         renderPage();
+        shoppingCart.reducePrice();
       });
     });
   }
@@ -109,6 +117,7 @@ class Checkout {
       });
     });
   }
+  
   saveQuantity() {
     document.querySelectorAll(".js-save-quantity-link").forEach((button) => {
       button.addEventListener("click", () => {
@@ -140,25 +149,26 @@ class Checkout {
         localStorage.setItem("cart", JSON.stringify(shoppingCart.cart));
 
         renderPage();
+        shoppingCart.itemsPrice();
       });
     });
   }
 }
-const shoppingCart = new ShoppingCart();
 
 function renderPage() {
   shoppingCart.updateCartBody();
 
-  const cart = new Checkout(shoppingCart);
+  const cart = new Checkout();
   cart.cartBody();
   shoppingCart.updateCartMenu();
-
+  shoppingCart.addDeliveryDate();
   cart.orderColor();
   shoppingCart.updateCartMenu();
 
   cart.delete();
   cart.updateQuantity();
   cart.saveQuantity();
+  
 }
 
 renderPage();

@@ -1,6 +1,5 @@
 import { products } from "./products.js";
-import ShoppingCart from "./checkout.js";
-const shoppingCart = new ShoppingCart();
+import shoppingCart from "./checkout.js";
 class RenderProducts {
   renderProducts(products) {
     products.forEach((product) => {
