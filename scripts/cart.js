@@ -150,6 +150,7 @@ class Checkout {
 
         renderPage();
         shoppingCart.itemsPrice();
+        shoppingCart.placeOrder();
       });
     });
   }
