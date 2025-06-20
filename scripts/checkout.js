@@ -4,99 +4,131 @@ class ShoppingCart {
   cart;
   cartQuantity = 0;
   headerCartQuantity = 0;
-  itemPrice=0;
-  shippingPriceCents=0;
-  totalShippingPrice=0;
+  itemPrice = 0;
+  shippingPriceCents = 0;
+  totalShippingPrice = 0;
   updateHTML = "";
-  updateHTML2="";
+  updateHTML2 = "";
   deliveryDate;
+  orderplaced = false;
   constructor() {
     this.cart = JSON.parse(localStorage.getItem("cart")) || [];
   }
-  itemsPrice(){
-    this.cart.forEach((item) =>{
-      const prod=products.find(p => p.id===item.productId);
-      this.itemPrice+=Number(((prod.priceCents*item.quantity)/100).toFixed(2));
+  itemsPrice() {
+    this.cart.forEach((item) => {
+      const prod = products.find((p) => p.id === item.productId);
+      this.itemPrice += Number(
+        ((prod.priceCents * item.quantity) / 100).toFixed(2)
+      );
       console.log(this.itemPrice);
-
-    })
+    });
   }
-  reducePrice(){
-    this.cart.forEach((item) =>{
-      const prod=products.find(p => p.id===item.productId);
-      this.itemPrice-=Number(((prod.priceCents*item.quantity)/100).toFixed(2));
+  reducePrice() {
+    this.cart.forEach((item) => {
+      const prod = products.find((p) => p.id === item.productId);
+      this.itemPrice -= Number(
+        ((prod.priceCents * item.quantity) / 100).toFixed(2)
+      );
       console.log(this.itemPrice);
-
-    })
+    });
   }
-  placeOrder(){
-    this.cart.forEach((item)=>{
-      const product=products.find(p => p.id===item.productId);
-      this.updateHTML2+=`
-      <div class="order-container" data-testid="order-container-${product.id}">
-          <div class="order-header">
-            <section class="left-section">
-              <div class="order-date">
-                <div class="order-header-label">Order Placed:</div>
-                <div>${dayjs().format("dddd, MMMM D")}</div>
-              </div>
-              <div class="order-total">
-                <div class="order-header-label">Total:</div>
-                  <div>$${(this.itemPrice+this.totalShippingPrice).toFixed(2)}</div>
-              </div>
-            </section>
-
-            <section class="right-section">
-              <div class="order-header-label">Order ID:</div>
-              <div>${product.id}</div>
-            </section>
-          </div>
-
-          <div class="order-details-grid">
-            
-        <div class="product-image-container">
-          <img src="${product.image}">
-        </div>
-
-        <div class="product-details">
-          <div class="product-name">
-            ${product.name}
-          </div>
-
-          <div class="product-delivery-date">
-            Arriving on: ${this.deliveryDate}
-          </div>
-
-          
-
-          <div class="product-quantity">
-              Quantity: ${item.quantity}
-          </div>
-
-         
-        </div>
-         <button class="js-buy-again-button buy-again-button button-primary" data-order-id="${product.id}" data-cart-item-id="${product.id}" data-testid="buy-again-button-${product.id}">
-
-            <span class="buy-again-message">Buy it again</span>
-
-            <span class="buy-again-success hidden">
-              ✓ Added
-            </span>
-          </button>
-
-        
-      
-          </div>
-        </div>
-      `;
-    })
-    document.querySelector(".orders-container").innerHTML=this.updateHTML2;
+  buyAgain() {
+    document.querySelectorAll(".js-buy-again-button").forEach((button) => {
+      button.closest(".order-container").addEventListener("click", () => {
+        if (
+          this.cart.find((item) => item.productId === button.dataset.orderId)
+        ) {
+          this.cart.find(
+            (item) => item.productId === button.dataset.orderId
+          ).quantity += 1;
+        } else {
+          this.cart.push({ productId: button.dataset.orderId, quantity: 1 });
+        }
+        localStorage.setItem("cart", JSON.stringify(this.cart));
+        window.location.href = "cart.html";
+      });
+    });
   }
+  placeOrder() {
+    document.querySelector(".place-order").addEventListener("click", () => {
+      this.orderplaced = true;
+      this.updateHTML2 = localStorage.getItem("updateHTML2") || "";
+
+      this.cart.forEach((item) => {
+        const product = products.find((p) => p.id === item.productId);
+
+        this.updateHTML2 += `
+          <div class="order-container" data-testid="order-container-${
+            product.id
+          }">
+              <div class="order-header">
+                <section class="left-section">
+                  <div class="order-date">
+                    <div class="order-header-label">Order Placed:</div>
+                    <div>${dayjs().format("dddd, MMMM D")}</div>
+                  </div>
+                  <div class="order-total">
+                    <div class="order-header-label">Total:</div>
+                      <div>$${(
+                        this.itemPrice + this.totalShippingPrice
+                      ).toFixed(2)}</div>
+                  </div>
+                </section>
+    
+                <section class="right-section">
+                  <div class="order-header-label">Order ID:</div>
+                  <div>${product.id}</div>
+                </section>
+              </div>
+    
+              <div class="order-details-grid">
+                
+            <div class="product-image-container">
+              <img src="${product.image}">
+            </div>
+    
+            <div class="product-details">
+              <div class="product-name">
+                ${product.name}
+              </div>
+    
+              <div class="product-delivery-date">
+                Arriving on: ${this.deliveryDate}
+              </div>
+    
+              
+    
+              <div class="product-quantity">
+                  Quantity: ${item.quantity}
+              </div>
+    
+             
+            </div>
+             <button class="js-buy-again-button buy-again-button button-primary" data-order-id="${
+               product.id
+             }" data-cart-item-id="${
+          product.id
+        }" data-testid="buy-again-button-${product.id}">
+                <span class="buy-again-message">Buy it again</span>
   
+              </button>
+    
+            
+          
+              </div>
+            </div>
+          `;
+        localStorage.setItem("updateHTML2", this.updateHTML2);
+        this.cart = this.cart.filter((item) => item.productId !== product.id);
+        localStorage.setItem("cart", JSON.stringify(this.cart));
+        window.location.href = "orders.html";
+      });
+    });
+  }
+
   updateDate(button) {
     if (document.getElementById("7").checked) {
       this.deliveryDate = dayjs().add(7, "days").format("dddd, MMMM D");
-      
     } else if (document.getElementById("5").checked) {
       this.deliveryDate = dayjs().add(5, "days").format("dddd, MMMM D");
     } else if (document.getElementById("1").checked) {
@@ -140,7 +172,7 @@ class ShoppingCart {
               </div>
 
               <div class="product-price">
-                $${(product.priceCents/100).toFixed(2)}
+                $${(product.priceCents / 100).toFixed(2)}
                 
               </div>
 
@@ -179,7 +211,9 @@ class ShoppingCart {
               </div>
 
               
-        <div class="js-delivery-option delivery-option" data-delivery-option-id="${product.id}" data-testid="delivery-option-${product.id}">
+        <div class="js-delivery-option delivery-option" data-delivery-option-id="${
+          product.id
+        }" data-testid="delivery-option-${product.id}">
 
           <input class="js-delivery-option-input delivery-option-input" checked="" name="${
             product.id
@@ -194,7 +228,9 @@ ${dayjs().add(7, "days").format("dddd, MMMM D")}               </div>
           </div>
         </div>
       
-        <div class="js-delivery-option delivery-option" data-delivery-option-id="${product.id}" data-testid="delivery-option-${product.id}">
+        <div class="js-delivery-option delivery-option" data-delivery-option-id="${
+          product.id
+        }" data-testid="delivery-option-${product.id}">
 
           <input class="js-delivery-option-input delivery-option-input" name="${
             product.id
@@ -209,7 +245,9 @@ ${dayjs().add(5, "days").format("dddd, MMMM D")}               </div>
           </div>
         </div>
       
-        <div class="js-delivery-option delivery-option" data-delivery-option-id="${product.id}" data-testid="delivery-option-${product.id}">
+        <div class="js-delivery-option delivery-option" data-delivery-option-id="${
+          product.id
+        }" data-testid="delivery-option-${product.id}">
 
           <input class="js-delivery-option-input delivery-option-input" name="${
             product.id
@@ -228,26 +266,38 @@ ${dayjs().add(1, "days").format("dddd, MMMM D")}            </div>
           </div>
         </div>
       `;
-      
     });
   }
-  addDeliveryDate(){
-    document.querySelectorAll(".js-delivery-option").forEach((button)=>{
-      button.addEventListener("click",()=>{
-        this.shippingPriceCents=0;
+  addDeliveryDate() {
+    document.querySelectorAll(".js-delivery-option").forEach((button) => {
+      button.addEventListener("click", () => {
+        this.shippingPriceCents = 0;
         this.updateDate();
-        document.querySelector(".js-delivery-date").textContent=this.deliveryDate;
-        if(button.closest(".js-delivery-option").querySelector(".js-delivery-option-input").value==="0"){
-          this.shippingPriceCents+=0;
-        }else if(button.closest(".js-delivery-option").querySelector(".js-delivery-option-input").value==="499"){
-          this.shippingPriceCents+=499;
-        }else if(button.closest(".js-delivery-option").querySelector(".js-delivery-option-input").value==="999"){
-          this.shippingPriceCents+=999;
+        document.querySelector(".js-delivery-date").textContent =
+          this.deliveryDate;
+        if (
+          button
+            .closest(".js-delivery-option")
+            .querySelector(".js-delivery-option-input").value === "0"
+        ) {
+          this.shippingPriceCents += 0;
+        } else if (
+          button
+            .closest(".js-delivery-option")
+            .querySelector(".js-delivery-option-input").value === "499"
+        ) {
+          this.shippingPriceCents += 499;
+        } else if (
+          button
+            .closest(".js-delivery-option")
+            .querySelector(".js-delivery-option-input").value === "999"
+        ) {
+          this.shippingPriceCents += 999;
         }
-      this.totalShippingPrice+=this.shippingPriceCents;
+        this.totalShippingPrice += this.shippingPriceCents;
         console.log(this.totalShippingPrice);
-      })
-    })
+      });
+    });
   }
 
   addToCart(productId, button) {
@@ -313,7 +363,7 @@ ${dayjs().add(1, "days").format("dddd, MMMM D")}            </div>
       });
     });
   }
-  
+
   updateMenu() {
     this.headerCartQuantity = 0;
     this.cart.forEach((item) => {
@@ -325,7 +375,6 @@ ${dayjs().add(1, "days").format("dddd, MMMM D")}            </div>
     ).innerHTML = `Cart (<span class="cq">${this.headerCartQuantity}</span>)`;
   }
   updateCartMenu() {
-
     this.headerCartQuantity = 0;
     this.cart.forEach((item) => {
       this.headerCartQuantity += item.quantity;
@@ -342,5 +391,5 @@ ${dayjs().add(1, "days").format("dddd, MMMM D")}            </div>
     });
   }
 }
-const shoppingCart=new ShoppingCart();
+const shoppingCart = new ShoppingCart();
 export default shoppingCart;

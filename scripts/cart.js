@@ -172,3 +172,4 @@ function renderPage() {
 }
 
 renderPage();
+shoppingCart.placeOrder();
