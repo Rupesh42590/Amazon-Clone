@@ -65,7 +65,7 @@ class ShoppingCart {
                 <section class="left-section">
                   <div class="order-date">
                     <div class="order-header-label">Order Placed:</div>
-                    <div>${dayjs().format("dddd, MMMM D")}</div>
+                    <div> ${dayjs().add(7, "days").format("dddd, MMMM D")} </div>
                   </div>
                   <div class="order-total">
                     <div class="order-header-label">Total:</div>
@@ -119,21 +119,11 @@ class ShoppingCart {
             </div>
           `;
         localStorage.setItem("updateHTML2", this.updateHTML2);
-        this.cart = this.cart.filter((item) => item.productId !== product.id);
+        this.cart.find((item) => item.productId === product.id).quantity = 0;
         localStorage.setItem("cart", JSON.stringify(this.cart));
         window.location.href = "orders.html";
       });
     });
-  }
-
-  updateDate(button) {
-    if (document.getElementById("7").checked) {
-      this.deliveryDate = dayjs().add(7, "days").format("dddd, MMMM D");
-    } else if (document.getElementById("5").checked) {
-      this.deliveryDate = dayjs().add(5, "days").format("dddd, MMMM D");
-    } else if (document.getElementById("1").checked) {
-      this.deliveryDate = dayjs().add(1, "days").format("dddd, MMMM D");
-    }
   }
 
   updateCartBody() {
@@ -268,13 +258,47 @@ ${dayjs().add(1, "days").format("dddd, MMMM D")}            </div>
       `;
     });
   }
+  updateDate(button) {
+    if (button) {
+      if (
+        button
+          .closest(".js-delivery-option")
+          .querySelector(".js-delivery-option-input").value === "0"
+      ) {
+        this.deliveryDate = dayjs().add(7, "days").format("dddd, MMMM D");
+      } else if (
+        button
+          .closest(".js-delivery-option")
+          .querySelector(".js-delivery-option-input").value === "499"
+      ) {
+        this.deliveryDate = dayjs().add(5, "days").format("dddd, MMMM D");
+      } else if (
+        button
+          .closest(".js-delivery-option")
+          .querySelector(".js-delivery-option-input").value === "999"
+      ) {
+        this.deliveryDate = dayjs().add(1, "days").format("dddd, MMMM D");
+      }
+    }
+  }
   addDeliveryDate() {
+    document.querySelectorAll(".js-delivery-date").forEach((date) => {
+      date.innerHTML = dayjs().add(7, "days").format("dddd, MMMM D");
+    });
     document.querySelectorAll(".js-delivery-option").forEach((button) => {
+      
       button.addEventListener("click", () => {
         this.shippingPriceCents = 0;
-        this.updateDate();
-        document.querySelector(".js-delivery-date").textContent =
-          this.deliveryDate;
+        this.updateDate(button);
+        console.log(this.deliveryDate);
+        if (!button) {
+          return;
+        }
+        console.log(button.closest(".cart-item-container"));
+        button
+          .closest(".cart-item-container")
+          .querySelector(".js-delivery-date").innerHTML = this.deliveryDate;
+
         if (
           button
             .closest(".js-delivery-option")
