@@ -5,6 +5,26 @@
 
   color: rgb(255, 255, 255);
 }
+.no-orders{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+  gap: 10px;
+  margin-right: 50px;
+}
+.continue-shopping{
+  color: rgb(33, 33, 33);
+    background-color: rgb(255, 216, 20);
+    border-radius: 5px;
+    padding: 8px;
+    height: 33px;
+    border: none;
+    font-size: medium;
+    box-shadow: rgba(213, 217, 217, 0.5) 0px 2px 5px;
+    cursor: pointer;
+}
 .c {
   position: relative;
   top: 10px;
@@ -119,6 +139,10 @@ img {
   }
 }
 @media (max-width: 790px) {
+  .no-orders{
+    margin-right: 0px;
+    margin-left: 15px;
+  } 
   .order-container {
     margin-left: 40px;
     margin-right: 40px;
