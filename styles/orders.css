@@ -123,7 +123,9 @@ img {
     margin-left: 40px;
     margin-right: 40px;
   }
-
+  .right {
+    top: 5px;
+  }
   .amazon {
     margin-top: 0px;
   }
