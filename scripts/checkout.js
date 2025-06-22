@@ -10,7 +10,6 @@ class ShoppingCart {
   updateHTML = "";
   updateHTML2 = "";
   deliveryDate;
-  orderplaced = false;
   constructor() {
     this.cart = JSON.parse(localStorage.getItem("cart")) || [];
   }
@@ -51,7 +50,6 @@ class ShoppingCart {
   }
   placeOrder() {
     document.querySelector(".place-order").addEventListener("click", () => {
-      this.orderplaced = true;
       this.updateHTML2 = localStorage.getItem("updateHTML2") || "";
 
       this.cart.forEach((item) => {
@@ -122,6 +120,8 @@ class ShoppingCart {
         this.cart.find((item) => item.productId === product.id).quantity = 0;
         localStorage.setItem("cart", JSON.stringify(this.cart));
         window.location.href = "orders.html";
+        this.cart = [];
+        localStorage.setItem("cart", JSON.stringify(this.cart));
       });
     });
   }

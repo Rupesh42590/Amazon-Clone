@@ -5,6 +5,7 @@ class Checkout {
   updateOrder='';
   cartIsEmpty;
   constructor() {
+    
     this.updateHTML = shoppingCart.updateHTML;
     shoppingCart.cart.length === 0
       ? (this.cartIsEmpty = true)
