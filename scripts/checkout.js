@@ -86,12 +86,11 @@ class ShoppingCart {
                   <div class="order-date">
                     <div class="order-header-label">Order Placed:</div>
                     <div> ${dayjs()
-                      .add(7, "days")
                       .format("dddd, MMMM D")} </div>
                   </div>
                   <div class="order-total">
                     <div class="order-header-label">Total:</div>
-                      <div>$${this.itemsPrice()}</div>
+                      <div>$${(product.priceCents/100).toFixed(2)}</div>
                   </div>
                 </section>
     

@@ -23,7 +23,7 @@ class RenderProducts {
               />
               <span class="ratings"> ${product.rating.count} </span>
             </div>
-            <span class="price"> $${Math.round(
+            <span class="price"> $${(
               product.priceCents / 100
             ).toFixed(2)} </span>
             <select class="custom-select">
