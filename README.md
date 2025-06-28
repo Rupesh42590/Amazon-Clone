@@ -11,21 +11,21 @@ You can view the live version of this project [here](https://amazon-clone-eta-fl
 ## Features
 
 - Product listing with ratings, images, and pricing
-- Search bar with real-time filtering
+- Search bar with filtering
 - Shopping cart with add, remove, and update functionality
 - Order summary and simulated checkout process
 - Returns and orders layout
 - Fully responsive design across all devices
 - Clean and intuitive user interface
+- Local Storage for cart persistence
+- Flexbox and CSS Grid for layout
 
 ## Tech Stack
 
 - HTML5
 - CSS3
 - JavaScript (ES6+)
-- Local Storage for cart persistence
-- Flexbox and CSS Grid for layout
-- Mobile-first responsive design
+
 
 
 
