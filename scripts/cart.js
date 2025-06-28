@@ -2,10 +2,9 @@ import shoppingCart from "./checkout.js";
 import { products } from "./products.js";
 class Checkout {
   updateHTML;
-  updateOrder='';
+  updateOrder = "";
   cartIsEmpty;
   constructor() {
-    
     this.updateHTML = shoppingCart.updateHTML;
     shoppingCart.cart.length === 0
       ? (this.cartIsEmpty = true)
@@ -41,14 +40,15 @@ class Checkout {
                 <div class="payment-summary-row">
                     <div>Items (0):</div>
                     <div class="payment-summary-money" data-testid="product-cost">
-                        $0.00
+                        $${(shoppingCart.itemsPrice() / 100).toFixed(2)}
                     </div>
                 </div>
 
                 <div class="payment-summary-row">
                     <div>Shipping &amp; handling:</div>
                     <div class="payment-summary-money" data-testid="shipping-cost">
-                        $0.00
+                                                $${shoppingCart.totalShippingPrice()}
+
                     </div>
                 </div>
 
@@ -83,18 +83,28 @@ class Checkout {
 
     document.querySelector("body").innerHTML = cartBody;
     shoppingCart.updateDate();
-    document.querySelectorAll(".js-delivery-date").forEach((button)=>{
-      button.closest(".delivery-date").querySelector(".js-delivery-date").textContent=shoppingCart.deliveryDate;
-    })
+    document.querySelectorAll(".js-delivery-date").forEach((button) => {
+      button
+        .closest(".delivery-date")
+        .querySelector(".js-delivery-date").textContent =
+        shoppingCart.deliveryDate;
+    });
   }
-  
+
   delete() {
     document.querySelectorAll(".js-delete-quantity-link").forEach((button) => {
       button.addEventListener("click", () => {
         shoppingCart.cart = shoppingCart.cart.filter(
           (item) => item.productId !== button.dataset.cartItemId
         );
+        shoppingCart.shippingPriceCents = shoppingCart.shippingPriceCents.filter(
+          (item) => item.productId !== button.dataset.cartItemId
+        );
         localStorage.setItem("cart", JSON.stringify(shoppingCart.cart));
+        localStorage.setItem(
+          "shippingPriceCents",
+          JSON.stringify(shoppingCart.shippingPriceCents)
+        );
         renderPage();
         shoppingCart.reducePrice();
       });
@@ -118,7 +128,7 @@ class Checkout {
       });
     });
   }
-  
+
   saveQuantity() {
     document.querySelectorAll(".js-save-quantity-link").forEach((button) => {
       button.addEventListener("click", () => {
@@ -170,8 +180,10 @@ function renderPage() {
   cart.delete();
   cart.updateQuantity();
   cart.saveQuantity();
-  
 }
+document.addEventListener("cartUpdated", () => {
+  renderPage();
+});
 
 renderPage();
 shoppingCart.placeOrder();

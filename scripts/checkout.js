@@ -5,32 +5,42 @@ class ShoppingCart {
   cartQuantity = 0;
   headerCartQuantity = 0;
   itemPrice = 0;
-  shippingPriceCents = 0;
-  totalShippingPrice = 0;
+  shippingPriceCents;
+  shippingPrice = 0;
   updateHTML = "";
   updateHTML2 = "";
   deliveryDate;
   constructor() {
     this.cart = JSON.parse(localStorage.getItem("cart")) || [];
+    this.shippingPriceCents =
+      JSON.parse(localStorage.getItem("shippingPriceCents")) || [];
+  }
+  totalShippingPrice(){
+    return ((this.shipping())/100).toFixed(2);
   }
   itemsPrice() {
+    this.itemPrice=0;
     this.cart.forEach((item) => {
       const prod = products.find((p) => p.id === item.productId);
-      this.itemPrice += Number(
-        ((prod.priceCents * item.quantity) / 100).toFixed(2)
+      this.itemPrice += Math.round(
+        ((prod.priceCents * item.quantity) / 100).toFixed(2) * 100
       );
-      console.log(this.itemPrice);
     });
+    return this.itemPrice;
   }
-  reducePrice() {
+
+  shipping() {
     this.cart.forEach((item) => {
-      const prod = products.find((p) => p.id === item.productId);
-      this.itemPrice -= Number(
-        ((prod.priceCents * item.quantity) / 100).toFixed(2)
-      );
-      console.log(this.itemPrice);
+      this.shippingPrice = 0;
+      this.shippingPriceCents.forEach((item) => {
+        this.shippingPrice += item.price;
+      });
+      console.log(this.shippingPrice)
     });
+
+    return this.shippingPrice;
   }
+
   buyAgain() {
     document.querySelectorAll(".js-buy-again-button").forEach((button) => {
       button.closest(".order-container").addEventListener("click", () => {
@@ -63,13 +73,13 @@ class ShoppingCart {
                 <section class="left-section">
                   <div class="order-date">
                     <div class="order-header-label">Order Placed:</div>
-                    <div> ${dayjs().add(7, "days").format("dddd, MMMM D")} </div>
+                    <div> ${dayjs()
+                      .add(7, "days")
+                      .format("dddd, MMMM D")} </div>
                   </div>
                   <div class="order-total">
                     <div class="order-header-label">Total:</div>
-                      <div>$${(
-                        this.itemPrice + this.totalShippingPrice
-                      ).toFixed(2)}</div>
+                      <div>$${this.itemsPrice()}</div>
                   </div>
                 </section>
     
@@ -143,6 +153,15 @@ class ShoppingCart {
     this.updateHTML = "";
     this.cart.forEach((item) => {
       const product = products.find((product) => product.id === item.productId);
+      const shippingOption = this.shippingPriceCents.find(
+        (option) => option.productId === product.id
+      );
+  
+      const savedPrice =  shippingOption.price ;
+  
+      const isChecked0 = savedPrice === 0 ? 'checked' : '';
+      const isChecked499 = savedPrice === 499 ? 'checked' : '';
+      const isChecked999 = savedPrice === 999 ? 'checked' : '';
       this.updateHTML += `
      <div class="js-cart-item cart-item-container" data-cart-item-id="${
        product.id
@@ -207,7 +226,7 @@ class ShoppingCart {
 
           <input class="js-delivery-option-input delivery-option-input" checked="" name="${
             product.id
-          }-delivery-option" type="radio" value="0" id="7" data-testid="delivery-option-input">
+          }-delivery-option" type="radio" value="0" id="7" data-testid="delivery-option-input" ${isChecked0}>
 
           <div>
             <div class="delivery-option-date">
@@ -224,7 +243,7 @@ ${dayjs().add(7, "days").format("dddd, MMMM D")}               </div>
 
           <input class="js-delivery-option-input delivery-option-input" name="${
             product.id
-          }-delivery-option" type="radio" value="499" id="5" data-testid="delivery-option-input">
+          }-delivery-option" type="radio" value="499" id="5" data-testid="delivery-option-input" ${isChecked499}>
 
           <div>
             <div class="delivery-option-date">
@@ -241,7 +260,7 @@ ${dayjs().add(5, "days").format("dddd, MMMM D")}               </div>
 
           <input class="js-delivery-option-input delivery-option-input" name="${
             product.id
-          }-delivery-option" type="radio" value="999" id="1" data-testid="delivery-option-input">
+          }-delivery-option" type="radio" value="999" id="1" data-testid="delivery-option-input" ${isChecked999}>
 
           <div>
             <div class="delivery-option-date">
@@ -286,15 +305,11 @@ ${dayjs().add(1, "days").format("dddd, MMMM D")}            </div>
       date.innerHTML = dayjs().add(7, "days").format("dddd, MMMM D");
     });
     document.querySelectorAll(".js-delivery-option").forEach((button) => {
-      
       button.addEventListener("click", () => {
-        this.shippingPriceCents = 0;
         this.updateDate(button);
-        console.log(this.deliveryDate);
         if (!button) {
           return;
         }
-        console.log(button.closest(".cart-item-container"));
         button
           .closest(".cart-item-container")
           .querySelector(".js-delivery-date").innerHTML = this.deliveryDate;
@@ -304,22 +319,80 @@ ${dayjs().add(1, "days").format("dddd, MMMM D")}            </div>
             .closest(".js-delivery-option")
             .querySelector(".js-delivery-option-input").value === "0"
         ) {
-          this.shippingPriceCents += 0;
+          if (
+            this.shippingPriceCents.find(
+              (item) =>
+                item.productId ===
+                button.closest(".js-delivery-option").dataset.deliveryOptionId
+            )
+          ) {
+            this.shippingPriceCents.find(
+              (item) =>
+                item.productId ===
+                button.closest(".js-delivery-option").dataset.deliveryOptionId
+            ).price = 0;
+          } else {
+            this.shippingPriceCents.push({
+              productId: button.closest(".js-delivery-option").dataset
+                .deliveryOptionId,
+              price: 0,
+            });
+          }
         } else if (
           button
             .closest(".js-delivery-option")
             .querySelector(".js-delivery-option-input").value === "499"
         ) {
-          this.shippingPriceCents += 499;
+          if (
+            this.shippingPriceCents.find(
+              (item) =>
+                item.productId ===
+                button.closest(".js-delivery-option").dataset.deliveryOptionId
+            )
+          ) {
+            this.shippingPriceCents.find(
+              (item) =>
+                item.productId ===
+                button.closest(".js-delivery-option").dataset.deliveryOptionId
+            ).price = 499;
+          } else {
+            this.shippingPriceCents.push({
+              productId: button.closest(".js-delivery-option").dataset
+                .deliveryOptionId,
+              price: 499,
+            });
+      }
         } else if (
           button
             .closest(".js-delivery-option")
             .querySelector(".js-delivery-option-input").value === "999"
         ) {
-          this.shippingPriceCents += 999;
+          if (
+            this.shippingPriceCents.find(
+              (item) =>
+                item.productId ===
+                button.closest(".js-delivery-option").dataset.deliveryOptionId
+            )
+          ) {
+            this.shippingPriceCents.find(
+              (item) =>
+                item.productId ===
+                button.closest(".js-delivery-option").dataset.deliveryOptionId
+            ).price = 999;
+          } else {
+            this.shippingPriceCents.push({
+              productId: button.closest(".js-delivery-option").dataset
+                .deliveryOptionId,
+              price: 999,
+            });
+          }
         }
-        this.totalShippingPrice += this.shippingPriceCents;
-        console.log(this.totalShippingPrice);
+        localStorage.setItem(
+          "shippingPriceCents",
+          JSON.stringify(this.shippingPriceCents)
+        );
+        document.dispatchEvent(new CustomEvent('cartUpdated'));
+
       });
     });
   }
@@ -342,7 +415,12 @@ ${dayjs().add(1, "days").format("dddd, MMMM D")}            </div>
           10
         ),
       });
+      this.shippingPriceCents.push({ productId: productId, price: 0 });
       localStorage.setItem("cart", JSON.stringify(this.cart));
+      localStorage.setItem(
+        "shippingPriceCents",
+        JSON.stringify(this.shippingPriceCents)
+      );
     }
   }
   updateCartQuantity(button) {
@@ -370,7 +448,6 @@ ${dayjs().add(1, "days").format("dddd, MMMM D")}            </div>
     this.cart.forEach((item) => {
       this.cartQuantity += item.quantity;
     });
-    console.log(this.cartQuantity);
     document.querySelector(".cart-q").textContent = this.cartQuantity;
   }
 
@@ -393,7 +470,6 @@ ${dayjs().add(1, "days").format("dddd, MMMM D")}            </div>
     this.cart.forEach((item) => {
       this.headerCartQuantity += item.quantity;
     });
-    console.log(this.headerCartQuantity);
     document.querySelector(
       ".cm"
     ).innerHTML = `Cart (<span class="cq">${this.headerCartQuantity}</span>)`;
