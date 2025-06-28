@@ -43,7 +43,7 @@ Follow these steps to run the project locally:
 2.	Open index.html directly in your browser, or use a live server extension for best results.
 
 No backend setup is required. All features are implemented on the client side.
-. side.
+
 
 ## Project Structure
 ├── index.html
