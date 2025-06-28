@@ -37,7 +37,7 @@ Follow these steps to run the project locally:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/amazon-clone.git
+   git clone https://github.com/Rupesh42590/Amazon-Clone.git
    cd amazon-clone
 
 2.	Open index.html directly in your browser, or use a live server extension for best results.
