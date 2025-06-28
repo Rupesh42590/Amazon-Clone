@@ -9,7 +9,7 @@ class ShoppingCart {
   shippingPrice = 0;
   updateHTML = "";
   updateHTML2 = "";
-  deliveryDate=dayjs().add(7, "days").format("dddd, MMMM D");
+  deliveryDate;
   totPrice=0;
   estTax=0;
   constructor() {
@@ -181,7 +181,7 @@ class ShoppingCart {
 
           <div class="delivery-date">
             Delivery date:
-            <span class="js-delivery-date">${this.deliveryDate} </span>
+            <span class="js-delivery-date">${dayjs().add(7, "days").format("dddd, MMMM D")} </span>
           </div>
 
           <div class="cart-item-details-grid">
@@ -322,7 +322,7 @@ ${dayjs().add(1, "days").format("dddd, MMMM D")}            </div>
         }
         button
           .closest(".cart-item-container")
-          .querySelector(".js-delivery-date").innerHTML = this.deliveryDate; !important
+          .querySelector(".js-delivery-date").innerHTML = this.deliveryDate; !important;
 
         if (
           button
