@@ -9,7 +9,7 @@ class ShoppingCart {
   shippingPrice = 0;
   updateHTML = "";
   updateHTML2 = "";
-  deliveryDate;
+  deliveryDate=dayjs().add(7, "days").format("dddd, MMMM D");
   totPrice=0;
   estTax=0;
   constructor() {
@@ -48,7 +48,6 @@ class ShoppingCart {
       this.shippingPriceCents.forEach((item) => {
         this.shippingPrice += item.price;
       });
-      console.log(this.shippingPrice)
     });
 
     return this.shippingPrice;
@@ -182,7 +181,7 @@ class ShoppingCart {
 
           <div class="delivery-date">
             Delivery date:
-            <span class="js-delivery-date"> </span>
+            <span class="js-delivery-date">${this.deliveryDate} </span>
           </div>
 
           <div class="cart-item-details-grid">
@@ -314,10 +313,8 @@ ${dayjs().add(1, "days").format("dddd, MMMM D")}            </div>
     }
   }
   addDeliveryDate() {
-    document.querySelectorAll(".js-delivery-date").forEach((date) => {
-      date.innerHTML = dayjs().add(7, "days").format("dddd, MMMM D");
-    });
-    document.querySelectorAll(".js-delivery-option").forEach((button) => {
+    
+    document.querySelectorAll(".js-delivery-option-input").forEach((button) => {
       button.addEventListener("click", () => {
         this.updateDate(button);
         if (!button) {
@@ -325,7 +322,7 @@ ${dayjs().add(1, "days").format("dddd, MMMM D")}            </div>
         }
         button
           .closest(".cart-item-container")
-          .querySelector(".js-delivery-date").innerHTML = this.deliveryDate;
+          .querySelector(".js-delivery-date").innerHTML = this.deliveryDate; !important
 
         if (
           button
@@ -404,7 +401,10 @@ ${dayjs().add(1, "days").format("dddd, MMMM D")}            </div>
           "shippingPriceCents",
           JSON.stringify(this.shippingPriceCents)
         );
+
         document.dispatchEvent(new CustomEvent('cartUpdated'));
+     
+       
 
       });
     });

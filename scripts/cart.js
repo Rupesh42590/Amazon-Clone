@@ -82,13 +82,7 @@ class Checkout {
     `;
 
     document.querySelector("body").innerHTML = cartBody;
-    shoppingCart.updateDate();
-    document.querySelectorAll(".js-delivery-date").forEach((button) => {
-      button
-        .closest(".delivery-date")
-        .querySelector(".js-delivery-date").textContent =
-        shoppingCart.deliveryDate;
-    });
+   
   }
 
   delete() {
@@ -182,8 +176,10 @@ function renderPage() {
   cart.saveQuantity();
 }
 document.addEventListener("cartUpdated", () => {
-  renderPage();
+ renderPage();
+ 
 });
 
 renderPage();
 shoppingCart.placeOrder();
+
