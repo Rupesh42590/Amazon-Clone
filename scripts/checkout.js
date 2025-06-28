@@ -10,6 +10,8 @@ class ShoppingCart {
   updateHTML = "";
   updateHTML2 = "";
   deliveryDate;
+  totPrice=0;
+  estTax=0;
   constructor() {
     this.cart = JSON.parse(localStorage.getItem("cart")) || [];
     this.shippingPriceCents =
@@ -17,6 +19,17 @@ class ShoppingCart {
   }
   totalShippingPrice(){
     return ((this.shipping())/100).toFixed(2);
+  }
+  totalPrice(){
+    this.totPrice=((this.itemPrice+this.shippingPrice));
+    return ((this.itemPrice+this.shippingPrice)/100).toFixed(2);
+  }
+  estimatedTax(){
+    this.estTax=((this.itemPrice*0.1));
+    return ((this.itemPrice*0.1)/100).toFixed(2);
+  }
+  orderTotal(){
+    return ((this.totPrice+this.estTax)/100).toFixed(2);
   }
   itemsPrice() {
     this.itemPrice=0;

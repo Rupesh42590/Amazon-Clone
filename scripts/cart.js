@@ -55,21 +55,21 @@ class Checkout {
                 <div class="payment-summary-row subtotal-row">
                     <div id="tax">Total before tax:</div>
                     <div class="payment-summary-money tax" data-testid="sub-total">
-                        $0.00
+                        $${shoppingCart.totalPrice()}
                     </div>
                 </div>
 
                 <div class="payment-summary-row">
                     <div>Estimated tax (10%):</div>
                     <div class="payment-summary-money" data-testid="tax-cost">
-                        $0.00
+                        $${shoppingCart.estimatedTax()}
                     </div>
                 </div>
 
                 <div class="payment-summary-row total-row">
                     <div>Order total:</div>
                     <div class="payment-summary-money" data-testid="total-cost">
-                        $0.00
+                        $${shoppingCart.orderTotal()}
                     </div>
                 </div>
                 <div class="order-button  no-items">
